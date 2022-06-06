@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
   private Animator animator;
   private SpriteRenderer sprite;
   private Transform transform;
+
   [SerializeField] private AudioSource jumpSoundEffect;
 
   [SerializeField] private LayerMask jumpableGround;
 
+  [SerializeField] private float mooveSpeed = 7f, jumpForce = 9f;
+
   private float dirX = 0f;
-  [SerializeField] private float mooveSpeed = 7f;
-  [SerializeField] private float jumpForce = 9f;
 
   private enum MovementState
   {
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
     UpdateAnimationState();
   }
 
-  /* private void OnTriggerEnter2D(Collider2D collision)
+  private void OnTriggerEnter2D(Collider2D collision)
    {
      if (collision.gameObject.CompareTag("EndFlag"))
      {
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
        animator.enabled = false;
      }
    }
- */
+
 
   private void UpdateAnimationState()
   {
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
   private bool IsGrounded() => Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
 
-  public void MoveTo(Vector2 position)
+  public void MoveTo(Vector3 position)
   {
     transform.position = position;
   }

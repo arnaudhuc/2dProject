@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+  private Animator anim;
+
+  private Rigidbody2D rb;
+
   [SerializeField]
   private bool combatEnabled;
 
@@ -17,10 +21,6 @@ public class PlayerCombat : MonoBehaviour
   private bool gotInput, isAttacking, isFirstAttack;
 
   private float lastInputTime = Mathf.NegativeInfinity;
-
-  private Animator anim;
-
-  private Rigidbody2D rb;
 
   private void Start()
   {
