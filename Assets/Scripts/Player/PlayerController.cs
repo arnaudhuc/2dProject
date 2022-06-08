@@ -49,15 +49,14 @@ public class PlayerController : MonoBehaviour
     UpdateAnimationState();
   }
 
-  private void OnTriggerEnter2D(Collider2D collision)
-   {
-     if (collision.gameObject.CompareTag("EndFlag"))
-     {
-       rb.bodyType = RigidbodyType2D.Static;
-       animator.enabled = false;
-     }
-   }
-
+  /*private void OnTriggerEnter2D(Collider2D collision)
+  {
+    if (collision.gameObject.CompareTag("EndFlag"))
+    {
+      rb.bodyType = RigidbodyType2D.Static;
+      animator.enabled = false;
+    }
+  }*/
 
   private void UpdateAnimationState()
   {
